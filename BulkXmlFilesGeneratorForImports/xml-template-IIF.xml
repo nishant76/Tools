@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<RequestMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://iec.ch/TC57/2011/schema/message">
+<Header>
+    <Verb>create</Verb>
+    <Noun>ServiceLocationConfig</Noun>
+    <Revision>2.0</Revision>
+    <Timestamp>2014-03-18T11:00:25.3506989-05:00</Timestamp>
+    <Source>MDMS</Source>
+    <MessageID>a672df3f-a93e-41d7-8704-e136b543ef09</MessageID>
+    <CorrelationID>feb94af4-c07a-49d6-9cc0-9817d6e0df55</CorrelationID>
+ </Header>
+  <Request>
+    <ServiceLocationConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://iec.ch/TC57/2011/ServiceLocationConfig#">
+	  {0}
+   </ServiceLocationConfig>
+  </Request>
+</RequestMessage>

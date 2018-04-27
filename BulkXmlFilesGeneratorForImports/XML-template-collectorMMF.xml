@@ -1,0 +1,15 @@
+﻿ <ns0:RequestMessage xmlns:ns0="http://s2.tepco.co.jp/EI01_10_001_1/IN">
+   <ns0:Header>
+    <ns0:Verb>create</ns0:Verb>
+    <ns0:Noun>TpcFanDeviceDeliveryInfo01</ns0:Noun>
+    <ns0:Revision>1.0</ns0:Revision>
+    <ns0:Timestamp>2014-06-04T15:07:42+09:00</ns0:Timestamp>
+    <ns0:Source>s2ma.tepco</ns0:Source>
+    <ns0:MessageID>babeface-c625-4885-8db4-046baa71aaaa</ns0:MessageID>
+  </ns0:Header>
+    <ns0:Payload>
+      <ns0:TpcFanDeviceDeliveryInfo01>
+        {0}
+      </ns0:TpcFanDeviceDeliveryInfo01>
+  </ns0:Payload>
+  </ns0:RequestMessage>

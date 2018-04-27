@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ns0:RequestMessage xmlns:ns0="http://s2.tepco.co.jp/EI01_10_002_1/IN">
+  <ns0:Header>
+    <ns0:Verb>create</ns0:Verb>
+    <ns0:Noun>TpcFanServiceLocationConfig01</ns0:Noun>
+    <ns0:Revision>1.0</ns0:Revision>
+    <ns0:Timestamp>2014-06-04T15:07:42+09:00</ns0:Timestamp>
+    <ns0:Source>s2ma.tepco</ns0:Source>
+    <ns0:MessageID>8d80faff-c625-4885-8db4-046baa71ebf9</ns0:MessageID>
+  </ns0:Header>
+  <ns0:Payload>
+     <ns0:TpcFanServiceLocationConfig01>
+       {0}
+     </ns0:TpcFanServiceLocationConfig01>
+   </ns0:Payload>
+ </ns0:RequestMessage>
+
+

@@ -1,0 +1,454 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LandisGyr.Globalization</name>
+    </assembly>
+    <members>
+        <member name="T:LandisGyr.Globalization.NameableType">
+            <summary>
+            Entities that have conditionally localizable names
+            </summary>
+        </member>
+        <member name="F:LandisGyr.Globalization.NameableType.Group">
+            <summary>
+            A Command Center Group
+            </summary>
+        </member>
+        <member name="F:LandisGyr.Globalization.NameableType.Role">
+            <summary>
+            A Command Center Role
+            </summary>
+        </member>
+        <member name="T:LandisGyr.Globalization.CulturePolicy">
+            <summary>
+            An indicator of how to choose the culture used to localize a resource
+            </summary>
+        </member>
+        <member name="F:LandisGyr.Globalization.CulturePolicy.English">
+            <summary>
+            Localize as English
+            </summary>
+        </member>
+        <member name="F:LandisGyr.Globalization.CulturePolicy.CurrentCulture">
+            <summary>
+            Localize using the thread culture
+            </summary>
+        </member>
+        <member name="F:LandisGyr.Globalization.CulturePolicy.OrgDefault">
+            <summary>
+            Localize using the organization's default culture
+            </summary>
+        </member>
+        <member name="T:LandisGyr.Globalization.Extensions">
+            <summary>
+            Helper methods for retrieving localized strings from resource designators.
+            </summary>
+        </member>
+        <member name="M:LandisGyr.Globalization.Extensions.ToLocalizedString(System.Enum,System.Globalization.CultureInfo,System.Func{System.Collections.Generic.IEnumerable{System.String},System.String})">
+            <summary>
+            Retrieves a localized string associated with the specified value.
+            </summary>
+            <param name="resourceDesignator">An enum value whose type is decorated with a ResourceFileAttribute
+            that identifies a resource file that includes a resource name that matches the symbolic name of the resourceDesignator.</param>
+            <param name="culture">[Optional] The culture for which the string is localized. If null or omitted,
+            GetLocalizedString uses the current UI culture obtained from the CultureInfo.CurrentUICulture property.</param>
+            <param name="assembleResult">[Optional] A function that assembles the localized strings for a multi-valued
+            enum with A FlagsAttribute into a result string.</param>
+            <returns>
+            A resource value mapped to, or assembled from, the specified enum value.
+            </returns>
+            <exception cref="T:System.ArgumentException">A result-assembly function must be specified when the resource designator's enum type has a FlagsAttribute.;assembleResult</exception>
+            <exception cref="T:System.ArgumentException">A result-assembly function cannot be specified unless the resource designator's enum type has a FlagsAttribute.;assembleResult</exception>
+            <exception cref="T:System.ArgumentException">No symbolic name is defined for the enum value.;resourceDesignator</exception>
+        </member>
+        <member name="M:LandisGyr.Globalization.Extensions.LocalizedFormat(System.Enum,System.Globalization.CultureInfo,System.Object[])">
+            <summary>
+            Retrieves a localized string associated with the specified value and uses it to format the specified arguments.
+            </summary>
+            <param name="resourceDesignator">An enum value whose type is decorated with a ResourceFileAttribute
+            that identifies a resource file that includes a resource name that matches the symbolic name of the resourceDesignator.</param>
+            <param name="culture">The culture for which the string is localized. If null,
+            GetLocalizedFormat uses the current UI culture obtained from the CultureInfo.CurrentUICulture property.</param>
+            <param name="args">The arguments to be substituted for placeholders found in the localized message pattern.</param>
+            <returns>
+            A formatted string derived from the resource value mapped to the specified enum value.
+            </returns>
+        </member>
+        <member name="M:LandisGyr.Globalization.Extensions.LocalizedFormat(System.Enum,System.Object[])">
+            <summary>
+            Retrieves a localized string associated with the specified value and uses it to format the specified arguments.
+            </summary>
+            <param name="resourceDesignator">An enum value whose type is decorated with a ResourceFileAttribute
+            that identifies a resource file that includes a resource name that matches the symbolic name of the resourceDesignator.</param>
+            <param name="args">The arguments to be substituted for placeholders found in the localized message pattern.</param>
+            <returns>
+            A formatted string derived from the resource value mapped to the specified enum value.
+            </returns>
+            <exception cref="T:System.ArgumentException">A ResourceFileAttribute must be applied to the resource designator's enum type.;resourceDesignator</exception>
+        </member>
+        <member name="T:LandisGyr.Globalization.GroupNameProxy">
+            <summary>
+            A class that encapsulates the logic for (deferred) retrieval of the name of a Command Center Group.
+            </summary>
+        </member>
+        <member name="T:LandisGyr.Globalization.NameProxy">
+            <summary>
+            A class that encapsulates the logic for (deferred) retrieval of the name
+            of an object stored in the Command Center database.
+            </summary>
+        </member>
+        <member name="M:LandisGyr.Globalization.NameProxy.#ctor(System.Int32,LandisGyr.Globalization.NameableType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:LandisGyr.Globalization.NameProxy"/> class.
+            </summary>
+        </member>
+        <member name="M:LandisGyr.Globalization.NameProxy.ToString(LandisGyr.Globalization.CulturePolicy)">
+            <summary>
+            Returns the localized name of a Command Center object such as a Group.
+            </summary>
+            <param name="culturePolicy">The policy used to determine the culture for the localized name</param>
+            <returns>
+            A <see cref="T:System.String"/> that represents the localized name
+            </returns>
+        </member>
+        <member name="M:LandisGyr.Globalization.NameProxy.ToString">
+            <summary>
+            Returns the localized name of a Command Center object such as a Group using the current thread culture.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the localized name
+            </returns>
+        </member>
+        <member name="P:LandisGyr.Globalization.NameProxy.ID">
+            <summary>
+            Gets the ID of the object whose name is sought.
+            </summary>
+            <value>
+            The ID of the object whose name is sought.
+            </value>
+        </member>
+        <member name="P:LandisGyr.Globalization.NameProxy.ProxyType">
+            <summary>
+            Gets or sets the type of object for which this is a proxy
+            </summary>
+            <value>
+            The type of object for which this is a proxy.
+            </value>
+        </member>
+        <member name="M:LandisGyr.Globalization.GroupNameProxy.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:LandisGyr.Globalization.GroupNameProxy"/> class.
+            </summary>
+            <param name="id">The group ID.</param>
+        </member>
+        <member name="T:LandisGyr.Globalization.ICultureResolver">
+            <summary>
+            An interface to provide a method for resolving a CulturePolicy to a culture
+            </summary>
+        </member>
+        <member name="M:LandisGyr.Globalization.ICultureResolver.GetCulture(LandisGyr.Globalization.CulturePolicy)">
+            <summary>
+            Gets the culture for the specified CulturePolicy.
+            </summary>
+            <param name="culturePolicy">The culture policy.</param>
+            <returns></returns>
+        </member>
+        <member name="T:LandisGyr.Globalization.ILocalizedNameResolver">
+            <summary>
+            An interface to provide a method for converting an instance of a NameableType to a localized string.
+            </summary>
+        </member>
+        <member name="M:LandisGyr.Globalization.ILocalizedNameResolver.GetName(LandisGyr.Globalization.NameableType,System.Int32,System.Globalization.CultureInfo)">
+            <summary>
+            Gets the localized name of the identified instance of a NameableType
+            </summary>
+            <param name="nameType">The nameable type of the item whose localized name is sought.</param>
+            <param name="id">A value that identifies the item whose localized name is sought.</param>
+            <param name="culture">The culture in which to localize the item's name.</param>
+            <returns></returns>
+        </member>
+        <member name="T:LandisGyr.Globalization.ITemplatedMessage">
+            <summary>
+            Methods to retrieve a localized verion of a culture-independent text message
+            </summary>
+        </member>
+        <member name="M:LandisGyr.Globalization.ITemplatedMessage.ToString">
+            <summary>
+            Returns the text of the ITemplatedMessage with formatted values substituted for any
+            placeholders, localized using the thread's current culture. See remarks.
+            </summary>
+            <returns>
+            The localized text.
+            </returns>
+            <remarks>
+            The ITemplatedMessage must have been initialized with a resource designator (enum value),
+            not a simple message key (string).
+            </remarks>
+        </member>
+        <member name="M:LandisGyr.Globalization.ITemplatedMessage.ToString(LandisGyr.Globalization.CulturePolicy)">
+            <summary>
+            Returns the text of the ITemplatedMessage with formatted values substituted for any
+            placeholders, localized using the culture indicated by the specified CulturePolicy. See remarks.
+            </summary>
+            <returns>
+            The localized text.
+            </returns>
+            <remarks>
+            The ITemplatedMessage must have been initialized with a resource designator (enum value),
+            not a simple message key (string).
+            </remarks>
+        </member>
+        <member name="T:LandisGyr.Globalization.ITemplatedMessageSerialization">
+            <summary>
+            Methods to serialize an encapsulation of a culture-independent text message
+            </summary>
+        </member>
+        <member name="P:LandisGyr.Globalization.ITemplatedMessageSerialization.Serialized">
+            <summary>
+            An XML serialization of the ITemplatedMessage
+            </summary>
+        </member>
+        <member name="M:LandisGyr.Globalization.TemplatedMessageExtensions.Serialized(LandisGyr.Globalization.ITemplatedMessage)">
+            <summary>
+            An XML serialization of the ITemplatedMessage
+            </summary>
+            <param name="templatedMessage">The templated message.</param>
+            <returns>null if templatedMessage is null; otherwise, the serialization of templatedMessage</returns>
+        </member>
+        <member name="T:LandisGyr.Globalization.ResourceFileAttribute">
+            <summary>
+            A class to associate a resource file with an enumeration whose symbolic values can be used to retrieve resources.
+            </summary>
+        </member>
+        <member name="M:LandisGyr.Globalization.ResourceFileAttribute.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:LandisGyr.Globalization.ResourceFileAttribute"/> class.
+            </summary>
+            <param name="resourceClass">The (generated) resource class. It must provide a static property named ResourceManager
+            that returns a System.Resources.ResourceManager.</param>
+        </member>
+        <member name="M:LandisGyr.Globalization.ResourceFileAttribute.GetResourceManager(System.Type)">
+            <summary>
+            Gets the resource manager associated with the specified enum type.
+            </summary>
+            <param name="enumType">Type of the enum whose resource manager is sought.</param>
+            <returns>A System.Resources.ResourceManager for the resource file associated with the specified enum.</returns>
+            <exception cref="T:System.ArgumentException">A ResourceFileAttribute must be applied to enumType.;enumType</exception>
+        </member>
+        <member name="M:LandisGyr.Globalization.ResourceFileAttribute.GetResourceManager``1">
+            <summary>
+            Gets the resource manager associated with the specified enum type.
+            </summary>
+            <typeparam name="TEnum">Type of the enum whose resource manager is sought.</typeparam>
+            <returns>A System.Resources.ResourceManager for the resource file associated with the specified enum.</returns>
+            <exception cref="T:System.ArgumentException">A ResourceFileAttribute must be applied to TEnum.;enumType</exception>
+        </member>
+        <member name="P:LandisGyr.Globalization.ResourceFileAttribute.ResourceManager">
+            <summary>
+            Gets the ResourceManager for the specified class.
+            </summary>
+            <value>
+            The value of the static ResourceManager property of the specified class.
+            </value>
+        </member>
+        <member name="P:LandisGyr.Globalization.ResourceFileAttribute.ResourceClass">
+            <summary>
+            Gets the Type of the resource class.
+            </summary>
+            <value>
+            The resource class's Type.
+            </value>
+        </member>
+        <member name="T:LandisGyr.Globalization.TemplatedMessage">
+            <summary>
+            Encapsulation of a formattable message template, identified by a resource designator, and the values
+            to be substituted for the template's placeholders (à la string.Format)
+            </summary>
+        </member>
+        <member name="M:LandisGyr.Globalization.TemplatedMessage.#ctor(System.String,System.Object[])">
+            <summary>
+            [Obsolete] Creates a TemplatedMessage from a string (resource) with placeholders.
+            </summary>
+            <param name="messageKey">The message key for a string resource with placeholders</param>
+            <param name="messageParams">Parameters whose values will replace the placeholders
+            in the string identified by messageKey</param>
+            <exception cref="T:System.ArgumentNullException">
+            messageKey
+            or
+            messageParams
+            </exception>
+        </member>
+        <member name="M:LandisGyr.Globalization.TemplatedMessage.#ctor(System.Enum,System.Object[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:LandisGyr.Globalization.TemplatedMessage"/> class.
+            </summary>
+            <param name="resourceDesignator">An enum value that designates the resource to be used; see remarks.</param>
+            <param name="messageParams">Parameters whose values will replace the placeholders
+            in the string identified by resourceDesignator</param>
+            <exception cref="T:System.ArgumentException">
+            A ResourceFileAttribute must be applied to the resource designator's enum type.;resourceDesignator
+            </exception>
+            <exception cref="T:System.ArgumentNullException">messageParams</exception>
+            <remarks>
+            The resourceDesignator is an enum value whose enum type has a ResourceFileAttribute that indirectly identifies
+            the resource file used to resolve the resource reference. See <see cref="T:LandisGyr.Globalization.ResourceFileAttribute"/> for details.
+            The symbolic name of the resourceDesignator value is used to find the resource via the resource file associated
+            with the enum type.
+            </remarks>
+        </member>
+        <member name="M:LandisGyr.Globalization.TemplatedMessage.GetKnownTypes(System.Reflection.ICustomAttributeProvider)">
+            <summary>
+            Enumerates the non-default types that can be serialized as or within a TemplatedMessage.
+            </summary>
+            <param name="provider">The provider.</param>
+            <returns></returns>
+            <remarks>For use with ServiceKnownTypesAttribute</remarks>
+        </member>
+        <member name="M:LandisGyr.Globalization.TemplatedMessage.KnownTypes">
+            <summary>
+            Enumerates the non-default types that can be serialized as or within a TemplatedMessage.
+            </summary>
+            <returns></returns>
+            <remarks>For use with KnownTypeAttribute</remarks>
+        </member>
+        <member name="M:LandisGyr.Globalization.TemplatedMessage.Join(System.String,System.Object[])">
+            <summary>
+            Creates a TemplatedMessage that renders as the concatenation of the specified values with the specified separator between them.
+            </summary>
+            <param name="separator">The string to use as a separator. separator is included in the returned string
+            only if values has more than one element.</param>
+            <param name="values">An array that contains the elements to concatenate.</param>
+            <returns>A string that consists of the elements of values delimited by the separator string.</returns>
+        </member>
+        <member name="F:LandisGyr.Globalization.TemplatedMessage.DesignatorTypeAssyQfdName">
+            <summary>
+            The assembly-qualified name of the designator (enum) type.
+            </summary>
+            <value>
+            The assembly-qualified name of the designator type.
+            </value>
+        </member>
+        <member name="M:LandisGyr.Globalization.TemplatedMessage.GetText(System.Resources.ResourceManager)">
+            <summary>
+            [Obsolete] Returns the localized text of the TemplatedMessage with formatted values substituted for any
+            placeholders.
+            </summary>
+            <param name="messageFormatResMgr">The ResourceManager to be used to resolve the specified message key.
+            Ignored if the TemplatedMessage was created with Join() or with a resource designator (enum).</param>
+            <remarks>
+            This method must remain to support rendering of TemplatedMesages that were serialized using legacy constructors that captured
+            only a resource name/key with no information about the resource file to be used. It is called from only one place in the UI;
+            in all other situations, ToString should be used.
+            </remarks>
+        </member>
+        <member name="M:LandisGyr.Globalization.TemplatedMessage.ToString(LandisGyr.Globalization.CulturePolicy)">
+            <summary>
+            Returns the localized text of the TemplatedMessage with formatted values substituted for any placeholders.
+            </summary>
+            <param name="culturePolicy">A value to indicate whether to use English or another culture to localize the message.</param>
+            <returns>
+            The TemplatedMessage formatted according to the specified CulturePolicy.
+            </returns>
+            <remarks>
+            The TemplatedMessage must have been initialized with a resource designator (enum value),
+            not a simple message key (string).
+            </remarks>
+            <exception cref="T:System.NotSupportedException">This method can be used only with a MessageTemplate that was initialized with a suitable enum value as a resource designator.</exception>
+        </member>
+        <member name="M:LandisGyr.Globalization.TemplatedMessage.ToString">
+            <summary>Returns the localized text of the TemplatedMessage with formatted values substituted for any
+            placeholders. The localization will use the current thread's culture; see remarks.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the localized text of the TemplatedMessage with formatted
+            values substituted for any placeholders.
+            </returns>
+            <remarks>
+            The TemplatedMessage must have been initialized with a resource designator (enum value),
+            not a simple message key (string).
+            
+            If this TemplatedMessage is nested (that is, it's one of the messageParams used to create
+            a TemplatedMessage), ToString will localize it according to the CulturePolicy of the parent TemplatedMessage.
+            </remarks>
+        </member>
+        <member name="M:LandisGyr.Globalization.TemplatedMessage.Deserialize(System.String)">
+            <summary>
+            Returns a TemplatedMessage from an XML serialization
+            </summary>
+            <param name="serializedMessage">The XML-serialized message (from the Serialized property)</param>
+            <returns></returns>
+        </member>
+        <member name="M:LandisGyr.Globalization.TemplatedMessage.IsSerializedTemplatedMessage(System.String)">
+            <summary>
+            Determines whether the specified text is (probably) a serialized TemplatedMessage.
+            </summary>
+            <param name="text">The text to be analyzed.</param>
+            <returns>False if there's no way the text represents a TemplatedMessage; true if it could be.</returns>
+        </member>
+        <member name="F:LandisGyr.Globalization.TemplatedMessage.messageKey">
+            <summary>
+            The name of the resource that resolves to the message format (or simple string)
+            suitable for string.Format( )
+            </summary>
+        </member>
+        <member name="F:LandisGyr.Globalization.TemplatedMessage.messageParams">
+            <summary>
+            The message parameters (if any) that will be substituted for placeholders in the
+            format designated by messageKey.
+            </summary>
+        </member>
+        <member name="M:LandisGyr.Globalization.TemplatedMessage.GetProvider``1(System.String,System.String,System.String)">
+            <summary>
+            Gets a provider instance of the specified type from the configuration data found at specified key.
+            </summary>
+            <typeparam name="T">The provider's type</typeparam>
+            <param name="key">The key, in HuntEPICSettings, that identifies the provider's type and assembly.
+            Its format must be "assemblyName,fqTypeName".</param>
+            <param name="defaultTypeName">Default type name when no configuation value overrides it.</param>
+            <param name="defaultAssemblyName">Default assembly name when no configuation value overrides it.</param>
+            <returns></returns>
+        </member>
+        <member name="P:LandisGyr.Globalization.TemplatedMessage.Empty">
+            <summary>
+            Gets an empty TemplatedMessage. Use only when a non-null value is required.
+            </summary>
+            <value>
+            An empty TemplatedMessage that renders as string.Empty regardless of culture.
+            </value>
+        </member>
+        <member name="P:LandisGyr.Globalization.TemplatedMessage.Separator">
+            <summary>
+            Gets or sets the delimiter used for a joined message. If null, a resource designator must be specified.
+            </summary>
+            <value>
+            The string to use as a separator. Separator is included in the returned string only if messageParams has more than one element.
+            </value>
+        </member>
+        <member name="P:LandisGyr.Globalization.TemplatedMessage.Serialized">
+            <summary>
+            An XML serialization of the TemplatedMessage that can be deserialized with TemplatedMessage.Deserialize()
+            </summary>
+        </member>
+        <member name="T:LandisGyr.Globalization.ResourceProxy">
+            <summary>
+            A degenerate form of TemplatedMessage that provides a more intuitive name for an object
+            that merely substitutes a localized resource for a designator.
+            </summary>
+        </member>
+        <member name="M:LandisGyr.Globalization.ResourceProxy.#ctor(System.Enum)">
+            <summary>
+            Initializes a new instance of the <see cref="T:LandisGyr.Globalization.ResourceProxy"/> class.
+            </summary>
+            <param name="resourceDesignator">The resource designator.</param>
+        </member>
+        <member name="M:LandisGyr.Globalization.ResourceProxy.Join(System.String,System.Object[])">
+            <summary>
+            [Obsolete] Please use TemplatedMessage.Join( ).
+            </summary>
+            <param name="separator">The separator.</param>
+            <param name="values">The values.</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+    </members>
+</doc>

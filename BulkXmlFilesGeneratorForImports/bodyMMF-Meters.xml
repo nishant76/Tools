@@ -1,0 +1,29 @@
+﻿<Meter>
+<CustomAttributes>
+    <name>{0}</name>
+    <value>{1}</value>
+</CustomAttributes>
+<CustomAttributes>
+    <name>{2}</name>
+    <value>{3}</value>
+</CustomAttributes>
+<CustomAttributes>
+    <name>{4}</name>
+    <value>{5}</value>
+</CustomAttributes>
+<CustomAttributes>
+    <name>{6}</name>
+    <value>{7}</value>
+</CustomAttributes>
+<CustomAttributes>
+    <name>{8}</name>
+    <value>{9}</value>
+</CustomAttributes>
+<electronicAddress>
+    <mac>{10}</mac>
+</electronicAddress>
+{11}
+<Names>
+    <name>{12}</name>
+</Names>
+</Meter>

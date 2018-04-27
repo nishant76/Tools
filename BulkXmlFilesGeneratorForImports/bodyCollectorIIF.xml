@@ -1,0 +1,15 @@
+﻿<ns0:TpcFanServiceLocation>
+    <ns0:Names>
+    <ns0:Name>{0}</ns0:Name>
+  </ns0:Names>
+   <ns0:PositionPoints>
+    <ns0:xPosition>{1}</ns0:xPosition>
+    <ns0:yPosition>{1}</ns0:yPosition>
+  </ns0:PositionPoints>
+   <ns0:TpcFanDeviceInstallationInfo>
+    <ns0:CRBranchcode>{2}</ns0:CRBranchcode>
+    <ns0:PlanNumber>{1}</ns0:PlanNumber>
+    <ns0:InitialChannelNumber>{3}</ns0:InitialChannelNumber>
+    <ns0:CAFNumber>{4}</ns0:CAFNumber>
+  </ns0:TpcFanDeviceInstallationInfo>
+</ns0:TpcFanServiceLocation>

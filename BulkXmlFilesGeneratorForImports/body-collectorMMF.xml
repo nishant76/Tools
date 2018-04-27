@@ -1,0 +1,14 @@
+﻿   <ns0:Device>
+     <ns0:Names>
+      <ns0:name>{0}</ns0:name>
+    </ns0:Names>
+    <ns0:ManufacturedDate>{1}</ns0:ManufacturedDate>
+    <ns0:WANComID>{2}</ns0:WANComID>
+    <ns0:WANMACDeviceType>{3}</ns0:WANMACDeviceType>
+    <ns0:WANMACAddress>{4}</ns0:WANMACAddress>
+    <ns0:WANPhoneNumber>{5}</ns0:WANPhoneNumber>
+    <ns0:FAN1ComID>{6}</ns0:FAN1ComID>
+    <ns0:FAN1DeviceModel>{7}</ns0:FAN1DeviceModel>
+    <ns0:FAN1MACAddress>{4}</ns0:FAN1MACAddress>   
+  </ns0:Device>
+

@@ -1,0 +1,31 @@
+<ServiceLocation>
+  <ConfigurationEvents>
+    <effectiveDateTime>{0}</effectiveDateTime>
+    <modifiedBy>{1}</modifiedBy>
+  </ConfigurationEvents>
+  <CustomAttributes>
+    <name>{2}</name>
+    <sequenceNumber>{1}</sequenceNumber>
+    <value>{1}</value>
+  </CustomAttributes>
+  <mainAddress>
+    <streetDetail>
+      <number>{1}</number>
+      <suiteNumber>{1}</suiteNumber>
+    </streetDetail>
+    <townDetail>
+      <code>{1}</code>
+    </townDetail>
+  </mainAddress>
+  <Names>
+    <name>{3}</name>
+    <NameType>
+      <name>{4}</name>
+    </NameType>
+  </Names>
+  <PositionPoints>
+    <xPosition>{5}</xPosition>
+    <yPosition>{5}</yPosition>
+  </PositionPoints>
+</ServiceLocation>
+    

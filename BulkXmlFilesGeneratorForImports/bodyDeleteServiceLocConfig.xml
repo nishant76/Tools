@@ -1,0 +1,10 @@
+﻿ <ns1:ServiceLocation>
+   <ns1:ConfigurationEvents>
+    <ns1:createdDateTime>{0}</ns1:createdDateTime>
+    <ns1:effectiveDateTime>{0}</ns1:effectiveDateTime>
+  </ns1:ConfigurationEvents>
+   <ns1:Names>
+    <ns1:name>{1}</ns1:name>
+  </ns1:Names>
+</ns1:ServiceLocation>
+
